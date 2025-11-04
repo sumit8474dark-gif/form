@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dating Profile Form</title>
+ 
+        <div>
+          <label for="fullName" class="block text-sm font-semibold mb-1">Full name</label>
+          <input id="fullName" name="fullName" type="text" required minlength="2"
+                 
+                 placeholder="e.g. Aisha Khan">
+          
+        </div>
+
+        <!-- Pronouns -->
+        <div>
+          <label for="pronouns" >Pronouns</label>
+          <input id="pronouns" name="pronouns" type="text"
+               
+                 placeholder="e.g. she/her, he/him, they/them">
+        </div>
+
+        <!-- Age -->
+        <div>
+          <label for="age" class="block text-sm font-semibold mb-1">Age</label>
+          <input id="age" name="age" type="number" required min="13" max="120"
+                 
+                 placeholder="Enter your age">
+        </div>
+
+        <!-- Location -->
+        <div>
+          <label for="location" class="block text-sm font-semibold mb-1">Location (city)</label>
+          <input id="location" name="location" type="text"
+                
+                 placeholder="e.g. Mumbai">
+        </div>
+      </section>
+
+      <!-- Contact row -->
+      <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label for="email" class="block text-sm font-semibold mb-1">Email</label>
+          <input id="email" name="email" type="email" required
+                
+                 placeholder="you@example.com">
+        </div>
+        <div>
+          <label for="phone" class="block text-sm font-semibold mb-1">Phone (optional)</label>
+          <input id="phone" name="phone" type="tel"
+                 
+            
+                 placeholder="+91 98765 43210">
+        </div>
+      </div>
+
+      <!-- Profile pic and preview -->
+      <div class="mt-4 md:flex md:items-start gap-4">
+        <div class="flex-1">
+          <label for="photo" class="block text-sm font-semibold mb-1">Profile picture (optional)</label>
+          <input id="photo" name="photo" type="file" accept="image/*"
+         
+                 onchange="previewImage(event)">
+        </div>
+        
+
+      <!-- Bio -->
+      <div class="mt-4">
+        <label for="bio" class="block text-sm font-semibold mb-1">About you</label>
+        <textarea id="bio" name="bio" rows="4" maxlength="600"
+                 
+                  placeholder="Write a short bio — interests, hobbies, what you’re looking for..."></textarea>
+        <p id="bioCount" class="text-xs text-slate-500 mt-1">0 / 600</p>
+      </div>
+
+      <!-- Interests -->
+      <fieldset class="mt-4">
+        <legend class="block text-sm font-semibold mb-2">Interests (choose up to 4)</legend>
+        <div id="interests" class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+          <label class="inline-flex items-center gap-2">
+            <input type="checkbox" name="interest" value="music" class="rounded" />
+            <span class="text-sm">Music</span>
+          </label>
+          <label class="inline-flex items-center gap-2">
+            <input type="checkbox" name="interest" value="movies" class="rounded" />
+            <span class="text-sm">Movies</span>
+          </label>
+          <label class="inline-flex items-center gap-2">
+            <input type="checkbox" name="interest" value="sports" class="rounded" />
+            <span class="text-sm">Sports</span>
+          </label>
+          <label class="inline-flex items-center gap-2">
+            <input type="checkbox" name="interest" value="books" class="rounded" />
+            <span class="text-sm">Books</span>
+          </label>
+          <label class="inline-flex items-center gap-2">
+            <input type="checkbox" name="interest" value="travel" class="rounded" />
+            <span class="text-sm">Travel</span>
+          </label>
+          <label class="inline-flex items-center gap-2">
+            <input type="checkbox" name="interest" value="food" class="rounded" />
+            <span class="text-sm">Food</span>
+          </label>
+        </div>
+        
+
+      <!-- Match preferences -->
+      <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-sm font-semibold mb-1">Looking for</label>
+          <select name="lookingFor" required class="w-full rounded-lg bg-neutral-900 border border-neutral-800 px-3 py-2">
+            <option value="">Choose...</option>
+            <option value="friendship">Friendship</option>
+            <option value="relationship">Relationship</option>
+            <option value="casual">Casual dating</option>
+            <option value="networking">Networking</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-sm font-semibold mb-1">Preferred age range</label>
+          <div class="flex gap-2">
+            <input id="ageMin" name="ageMin" type="number" min="13" max="120" placeholder="Min"
+                   class="w-1/2 rounded-lg bg-neutral-900 border border-neutral-800 px-3 py-2">
+            <input id="ageMax" name="ageMax" type="number" min="13" max="120" placeholder="Max"
+                   class="w-1/2 rounded-lg bg-neutral-900 border border-neutral-800 px-3 py-2">
+          </div>
+        </div>
+      </div>
+
+      <!-- Terms & submit -->
+      <div class="mt-6 flex items-start gap-3">
+        <label class="inline-flex items-start gap-2">
+          <input id="consent" name="consent" type="checkbox" required class="mt-1" />
+          <div>
+            <div class="text-sm font-semibold">I confirm the info is accurate</div>
+            <div class="text-xs text-slate-500">By submitting you agree to the terms (demo form) and confirm you’ll be respectful.</div>
+          </div>
+        </label>
+      </div>
+
+      <div class="mt-6 flex gap-3">
+        <button type="submit" class="flex-1 rounded-xl py-2 font-semibold text-white bg-indigo-600 hover:bg-indigo-500 transition-shadow">
+          Create profile
+        </button>
+        <button type="reset" class="rounded-xl py-2 px-4 border border-neutral-800 text-slate-300">Reset</button>
+      </div>
+
+      <p id="formMsg" class="mt-4 text-sm text-emerald-400 hidden"></p>
+    </form>
+  </main>
+
+ 
+</body>
+</html>
